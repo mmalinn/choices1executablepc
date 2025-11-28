@@ -1,0 +1,33 @@
+Steps to Implement Random Image Selection
+Prepare Your Images:
+
+Place all the images you want to use in a specific folder within your Ren'Py project. For example, you might have a folder named images.
+Define the Function:
+
+In your script, you can define a function that selects a random image from the folder. Here’s a sample code snippet:
+init python:
+    import os
+    import random
+
+    def get_random_image():
+        # Specify the folder containing your images
+        image_folder = "images"
+        # List all files in the folder
+        images = [f for f in os.listdir(image_folder) if f.endswith(('.png', '.jpg', '.jpeg'))]
+        # Select a random image
+        return os.path.join(image_folder, random.choice(images))
+Display the Image:
+
+You can then use this function to display a random image in your game. For example:
+label start:
+    $ random_image = get_random_image()
+    show expression random_image
+    "Here is a random image!"
+Explanation of the Code
+os: This module is used to interact with the operating system, allowing you to list files in a directory.
+random: This module is used to select a random item from a list.
+get_random_image(): This function lists all images in the specified folder and returns a random image path.
+Additional Tips
+Make sure your images are in the correct format (like .png, .jpg, etc.) as specified in the code.
+You can call get_random_image() whenever you want to display a new random image.
+This method is quite flexible and can be adapted to suit your needs! If you have any more questions or need further assistance, feel free to ask! 😊
